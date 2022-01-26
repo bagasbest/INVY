@@ -1,0 +1,2 @@
+rootProject.name = "INVY"
+include ':app'

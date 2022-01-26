@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "8253483394",
+    "project_id": "invy-9b42c",
+    "storage_bucket": "invy-9b42c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8253483394:android:194df04d05a773a979879b",
+        "android_client_info": {
+          "package_name": "com.project.invy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "8253483394-rlrp13h3olo7u22beef6vf5473s1qqli.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDXBM3sC7bm_y95P9IPRNNgvI-2sGanLg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "8253483394-rlrp13h3olo7u22beef6vf5473s1qqli.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
