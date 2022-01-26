@@ -55,6 +55,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:20.0.0'
 
 
+    // security
+    implementation 'com.github.ihimanshurawat:Hasher:1.2'
+
     // ui
     implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation 'com.github.bumptech.glide:glide:4.12.0'
