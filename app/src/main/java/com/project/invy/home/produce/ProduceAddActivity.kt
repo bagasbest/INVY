@@ -55,6 +55,7 @@ class ProduceAddActivity : AppCompatActivity() {
         val invCode = binding?.invCode?.text.toString().trim()
         val satuan = binding?.satuan?.text.toString().trim()
         val total = binding?.total?.text.toString().trim()
+        val date = binding?.date?.text.toString()
         val keterangan = binding?.keterangan?.text.toString().trim()
 
         when {
@@ -79,6 +80,9 @@ class ProduceAddActivity : AppCompatActivity() {
             keterangan.isEmpty() -> {
                 Toast.makeText(this, "Keterangan tidak boleh kosong", Toast.LENGTH_SHORT).show()
             }
+            date == "Date" -> {
+                Toast.makeText(this, "Tanggal permohonan barang tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }
             else -> {
 
                 binding?.progressBar?.visibility = View.VISIBLE
@@ -93,7 +97,7 @@ class ProduceAddActivity : AppCompatActivity() {
                     "satuan" to satuan.toLong(),
                     "total" to total.toLong(),
                     "keterangan" to keterangan,
-                    
+                    "date" to date,
                 )
 
                 FirebaseFirestore
