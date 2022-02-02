@@ -8,13 +8,15 @@
         <entry key="..\:/TUBES_GALERI/INVY/app/src/main/res/drawable/bg_rounded.xml" value="0.2526041666666667" />
         <entry key="..\:/TUBES_GALERI/INVY/app/src/main/res/drawable/bg_rounded_left.xml" value="0.2526041666666667" />
         <entry key="..\:/TUBES_GALERI/INVY/app/src/main/res/layout/activity_admin.xml" value="0.23645833333333333" />
-        <entry key="..\:/TUBES_GALERI/INVY/app/src/main/res/layout/activity_home.xml" value="0.264" />
+        <entry key="..\:/TUBES_GALERI/INVY/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/TUBES_GALERI/INVY/app/src/main/res/layout/activity_main.xml" value="0.23645833333333333" />
         <entry key="..\:/TUBES_GALERI/INVY/app/src/main/res/layout/activity_produce.xml" value="0.23645833333333333" />
         <entry key="..\:/TUBES_GALERI/INVY/app/src/main/res/layout/activity_produce_add.xml" value="0.2" />
+        <entry key="..\:/TUBES_GALERI/INVY/app/src/main/res/layout/activity_proof.xml" value="0.23143115942028986" />
         <entry key="..\:/TUBES_GALERI/INVY/app/src/main/res/layout/activity_register.xml" value="0.23645833333333333" />
         <entry key="..\:/TUBES_GALERI/INVY/app/src/main/res/layout/activity_warehouse.xml" value="0.23645833333333333" />
         <entry key="..\:/TUBES_GALERI/INVY/app/src/main/res/layout/activity_warehouse_inbox.xml" value="0.23645833333333333" />
+        <entry key="..\:/TUBES_GALERI/INVY/app/src/main/res/layout/activity_warehouse_inbox_proof.xml" value="0.2" />
         <entry key="..\:/TUBES_GALERI/INVY/app/src/main/res/layout/activity_warehouse_product_in.xml" value="0.23645833333333333" />
         <entry key="..\:/TUBES_GALERI/INVY/app/src/main/res/layout/activity_warehouse_product_out.xml" value="0.23645833333333333" />
         <entry key="..\:/TUBES_GALERI/INVY/app/src/main/res/layout/item_in_out.xml" value="0.23645833333333333" />

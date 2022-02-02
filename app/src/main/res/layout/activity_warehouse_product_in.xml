@@ -179,6 +179,7 @@
 
 
         <ImageView
+            android:id="@+id/imageHint"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:contentDescription="@string/image"

@@ -24,9 +24,9 @@ class MainActivity : AppCompatActivity() {
 
         autoLogin()
 
-        binding?.register?.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
-        }
+//        binding?.register?.setOnClickListener {
+//            startActivity(Intent(this, RegisterActivity::class.java))
+//        }
 
         binding?.login?.setOnClickListener {
             formValidation()

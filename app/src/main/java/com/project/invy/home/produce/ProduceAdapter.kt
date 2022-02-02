@@ -1,6 +1,7 @@
 package com.project.invy.home.produce
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -9,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.project.invy.R
 import com.project.invy.databinding.ItemProductBinding
+import com.project.invy.home.adm_produce.ProofActivity
+import com.project.invy.home.warehouse.WarehouseInboxProofActivity
 
 class ProduceAdapter(private val role: String) : RecyclerView.Adapter<ProduceAdapter.ViewHolder>() {
 
@@ -75,6 +78,13 @@ class ProduceAdapter(private val role: String) : RecyclerView.Adapter<ProduceAda
                                 }
                                 .setNegativeButton("TIDAK", null)
                                 .show()
+                    }
+                } else if (role == "warehouse") {
+                    option.text = "LIHAT"
+                    option.setOnClickListener {
+                        val intent = Intent(itemView.context, WarehouseInboxProofActivity::class.java)
+                        intent.putExtra(WarehouseInboxProofActivity.EXTRA_MODEL, model)
+                        itemView.context.startActivity(intent)
                     }
                 }
             }

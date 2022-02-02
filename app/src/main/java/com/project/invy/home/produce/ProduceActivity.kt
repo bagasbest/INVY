@@ -45,14 +45,14 @@ class ProduceActivity : AppCompatActivity() {
 
         binding?.progressBar?.visibility = View.VISIBLE
         viewModel.setListProduct()
-        viewModel.getProduceList().observe(this) { reward ->
-            if (reward.size > 0) {
-                adapter!!.setData(reward)
+        viewModel.getProduceList().observe(this) { produce ->
+            if (produce.size > 0) {
+                adapter!!.setData(produce)
                 binding?.noData?.visibility = View.GONE
             } else {
                 binding?.noData?.visibility = View.VISIBLE
-                binding!!.progressBar.visibility = View.GONE
             }
+            binding!!.progressBar.visibility = View.GONE
         }
     }
 

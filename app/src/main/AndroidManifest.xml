@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.INVY">
         <activity
+            android:name=".home.adm_produce.ProofActivity"
+            android:exported="false" />
+        <activity
+            android:name=".home.warehouse.WarehouseInboxProofActivity"
+            android:exported="false" />
+        <activity
             android:name=".home.warehouse.WarehouseInboxActivity"
             android:exported="false" />
         <activity

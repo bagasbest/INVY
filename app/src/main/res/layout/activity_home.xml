@@ -26,6 +26,7 @@
         android:layout_marginTop="100dp"
         android:layout_marginEnd="16dp"
         app:cardCornerRadius="12dp"
+        android:layout_marginBottom="16sp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -235,6 +236,7 @@
             app:cardCornerRadius="12dp"
             android:id="@+id/permintaanBarang"
             android:elevation="10dp"
+            android:layout_marginBottom="16sp"
             android:layout_marginTop="16sp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -245,11 +247,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16sp"
+                    android:layout_marginTop="10dp"
                     android:text="Bukti permintaan barang"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="16sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/buktiPermintaanBarangImage" />
@@ -268,7 +270,9 @@
                     android:id="@+id/buktiPermintaanBarangImage"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
+                    android:src="@drawable/ic_baseline_add_shopping_cart_24"
                     android:layout_marginStart="10dp"
+                    app:tint="@color/blue_young"
                     android:contentDescription="@string/image"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -429,6 +433,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="12dp"
+            android:layout_marginBottom="16sp"
             android:id="@+id/inboxBarang"
             android:elevation="10dp"
             android:layout_marginTop="16sp">

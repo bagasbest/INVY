@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -13,6 +14,9 @@ import com.project.invy.R
 import com.project.invy.databinding.ActivityHomeBinding
 import com.project.invy.home.adm_produce.AdminActivity
 import com.project.invy.home.produce.ProduceActivity
+import com.project.invy.home.warehouse.WarehouseInboxActivity
+import com.project.invy.home.warehouse.WarehouseProductInActivity
+import com.project.invy.home.warehouse.WarehouseProductOutActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -34,13 +38,39 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this, AdminActivity::class.java))
         }
 
-        binding?.logout?.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
+        binding?.productInWarehouse?.setOnClickListener {
+            startActivity(Intent(this, WarehouseProductInActivity::class.java))
+        }
 
-            val intent = Intent(this, MainActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+        binding?.productOutWarehouse?.setOnClickListener {
+            startActivity(Intent(this, WarehouseProductOutActivity::class.java))
+        }
+
+        binding?.inboxBarang?.setOnClickListener {
+            startActivity(Intent(this, WarehouseInboxActivity::class.java))
+        }
+
+
+        binding?.productIn?.setOnClickListener {
+            val intent = Intent(this, AdminActivity::class.java)
+            intent.putExtra(AdminActivity.EXTRA_OPTION, "product_in")
             startActivity(intent)
-            finish()
+        }
+
+        binding?.productOut?.setOnClickListener {
+            val intent = Intent(this, AdminActivity::class.java)
+            intent.putExtra(AdminActivity.EXTRA_OPTION, "product_out")
+            startActivity(intent)
+        }
+
+        binding?.permintaanBarang?.setOnClickListener {
+            val intent = Intent(this, AdminActivity::class.java)
+            intent.putExtra(AdminActivity.EXTRA_OPTION, "permintaan_barang")
+            startActivity(intent)
+        }
+
+        binding?.logout?.setOnClickListener {
+           showConfirmLogout()
         }
     }
 
@@ -52,14 +82,13 @@ class HomeActivity : AppCompatActivity() {
             .document(uid)
             .get()
             .addOnSuccessListener {
-                val role = "" + it.data?.get("role")
 
-                when (role) {
+                when ("" + it.data?.get("role")) {
                     "produce" -> {
                         binding?.produce?.visibility = View.VISIBLE
                         binding?.title?.text = "Produksi"
                     }
-                    "adm produce" -> {
+                    "admin" -> {
                         binding?.admin?.visibility = View.VISIBLE
                         binding?.title?.text = "Adm Produksi"
 
@@ -74,7 +103,7 @@ class HomeActivity : AppCompatActivity() {
                     }
                     else -> {
                         binding?.warehouse?.visibility = View.VISIBLE
-                        binding?.title?.text = "Gudang"
+                        binding?.title?.text = "gudang"
 
 
                         Glide.with(this)
@@ -88,6 +117,25 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
 
+    }
+
+    /// konfirmasi logout
+    private fun showConfirmLogout() {
+        AlertDialog.Builder(this)
+            .setTitle("Konfirmasi Logout")
+            .setMessage("Apakah anda yakin ingin keluar ?")
+            .setIcon(R.drawable.ic_baseline_warning_24)
+            .setPositiveButton("YA") { dialogInterface, _ ->
+                dialogInterface.dismiss()
+                FirebaseAuth.getInstance().signOut()
+
+                val intent = Intent(this, MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+                finish()
+            }
+            .setNegativeButton("TIDAK", null)
+            .show()
     }
 
     override fun onDestroy() {
