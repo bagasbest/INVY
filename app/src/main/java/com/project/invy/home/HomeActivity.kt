@@ -14,6 +14,8 @@ import com.project.invy.R
 import com.project.invy.databinding.ActivityHomeBinding
 import com.project.invy.home.adm_produce.AdminActivity
 import com.project.invy.home.produce.ProduceActivity
+import com.project.invy.home.produce.ProduceInOutStockActivity
+import com.project.invy.home.warehouse.WarehouseInOutStockActivity
 import com.project.invy.home.warehouse.WarehouseInboxActivity
 import com.project.invy.home.warehouse.WarehouseProductInActivity
 import com.project.invy.home.warehouse.WarehouseProductOutActivity
@@ -34,6 +36,10 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this, ProduceActivity::class.java))
         }
 
+        binding?.inOutStockCheck?.setOnClickListener {
+            startActivity(Intent(this, ProduceInOutStockActivity::class.java))
+        }
+
         binding?.admin?.setOnClickListener {
             startActivity(Intent(this, AdminActivity::class.java))
         }
@@ -48,6 +54,10 @@ class HomeActivity : AppCompatActivity() {
 
         binding?.inboxBarang?.setOnClickListener {
             startActivity(Intent(this, WarehouseInboxActivity::class.java))
+        }
+
+        binding?.inOutStock?.setOnClickListener {
+            startActivity(Intent(this, WarehouseInOutStockActivity::class.java))
         }
 
 
@@ -87,6 +97,9 @@ class HomeActivity : AppCompatActivity() {
                     "produce" -> {
                         binding?.produce?.visibility = View.VISIBLE
                         binding?.title?.text = "Produksi"
+                        Glide.with(this)
+                            .load(R.drawable.stock)
+                            .into(binding!!.inOutStockCheckImage)
                     }
                     "admin" -> {
                         binding?.admin?.visibility = View.VISIBLE
@@ -113,6 +126,10 @@ class HomeActivity : AppCompatActivity() {
                         Glide.with(this)
                             .load(R.drawable.product_out)
                             .into(binding!!.productOutImageWarehouse)
+
+                        Glide.with(this)
+                            .load(R.drawable.stock)
+                            .into(binding!!.inOutStockImage)
                     }
                 }
             }

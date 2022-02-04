@@ -1,4 +1,4 @@
-package com.project.invy.home.produce
+package com.project.invy.home.produce.out_of_stock
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -6,31 +6,27 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 
-class ProduceViewModel : ViewModel() {
+class OutOfStockViewModel : ViewModel() {
 
-
-    private val productList = MutableLiveData<ArrayList<ProduceModel>>()
-    private val listItems = ArrayList<ProduceModel>()
-    private val TAG = ProduceViewModel::class.java.simpleName
+    private val productList = MutableLiveData<ArrayList<OutOfStockModel>>()
+    private val listItems = ArrayList<OutOfStockModel>()
+    private val TAG = OutOfStockViewModel::class.java.simpleName
 
     fun setListProduct() {
         listItems.clear()
 
-
         try {
-            FirebaseFirestore.getInstance().collection("product")
+            FirebaseFirestore.getInstance().collection("product_available_or_not")
                 .get()
                 .addOnSuccessListener { documents ->
                     for (document in documents) {
-                        val model = ProduceModel()
-                        model.code = document.data["code"].toString()
+                        val model = OutOfStockModel()
                         model.name = document.data["name"].toString()
                         model.date = document.data["date"].toString()
-                        model.invCode = document.data["invCode"].toString()
-                        model.keterangan = document.data["keterangan"].toString()
-                        model.productId = document.data["productId"].toString()
-                        model.satuan = document.data["satuan"].toString()
+                        model.vendor = document.data["vendor"].toString()
+                        model.isAvailable = document.data["isAvailable"].toString()
                         model.total = document.data["total"] as Long
+                        model.productId = document.data["productId"].toString()
 
                         listItems.add(model)
                     }
@@ -44,9 +40,8 @@ class ProduceViewModel : ViewModel() {
         }
     }
 
-    fun getProduceList() : LiveData<ArrayList<ProduceModel>> {
+    fun getProduceList() : LiveData<ArrayList<OutOfStockModel>> {
         return productList
     }
-
 
 }

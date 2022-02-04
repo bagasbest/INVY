@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".home.produce.ProduceAddActivity">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".home.warehouse.WarehouseInOutStockActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -37,7 +36,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Form permintaan barang"
+            android:text="In / Out Stock Barang"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:layout_marginStart="16sp"
@@ -51,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_border"
-            android:text="Date"
+            android:text="Tanggal"
             android:layout_marginTop="16sp"
             android:layout_marginStart="16sp"
             android:layout_marginEnd="16sp"
@@ -95,11 +94,11 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
 
             <EditText
-                android:id="@+id/code"
+                android:id="@+id/total"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:hint="Kode Barang"
+                android:hint="Jumlah Barang"
                 android:inputType="number" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -120,99 +119,54 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
 
             <EditText
-                android:id="@+id/invCode"
+                android:id="@+id/productVendor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:hint="Inv Code"
+                android:hint="Nama Vendor"
                 android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout8"
+            android:id="@+id/textInputLayout11"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20sp"
             android:layout_marginEnd="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout7">
 
-            <EditText
-                android:id="@+id/satuan"
+            <com.rosemaryapp.amazingspinner.AmazingSpinner
+                android:id="@+id/availableOrNot"
+                style="@style/Widget.MaterialComponents.AutoCompleteTextView.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:hint="Satuan"
-                android:inputType="text" />
+                android:hint="Tersedia atau Tidak tersedia" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16sp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
-
-            <EditText
-                android:id="@+id/total"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:hint="Jumlah"
-                android:inputType="number" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16sp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout9">
-
-            <EditText
-                android:id="@+id/keterangan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:hint="Keterangan"
-                android:inputType="textMultiLine"
-                android:singleLine="false" />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16sp"
             android:visibility="gone"
+            android:layout_marginTop="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout10" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout11" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/save"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:background="@drawable/bg_rounded"
-            android:text="Kirim"
+            android:text="Simpan"
             android:layout_marginBottom="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -220,4 +174,4 @@
             app:layout_constraintTop_toBottomOf="@+id/progressBar" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
+</ScrollView>

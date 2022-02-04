@@ -3,6 +3,7 @@ package com.project.invy.home.produce
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -60,7 +61,7 @@ class ProduceAdapter(private val role: String) : RecyclerView.Adapter<ProduceAda
 
                                                     Toast.makeText(
                                                         itemView.context,
-                                                        "Gagal menghapus pengajuan produk ini",
+                                                        "Berhasil menghapus pengajuan produk ini",
                                                         Toast.LENGTH_SHORT
                                                     )
                                                         .show()
@@ -80,6 +81,7 @@ class ProduceAdapter(private val role: String) : RecyclerView.Adapter<ProduceAda
                                 .show()
                     }
                 } else if (role == "warehouse") {
+                    reqItem.visibility = View.VISIBLE
                     option.text = "LIHAT"
                     option.setOnClickListener {
                         val intent = Intent(itemView.context, WarehouseInboxProofActivity::class.java)

@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">INVY</string>
     <string name="image">image</string>
+
+    <string-array name="available">
+        <item>Tersedia</item>
+        <item>Tidak Tersedia</item>
+    </string-array>
 </resources>

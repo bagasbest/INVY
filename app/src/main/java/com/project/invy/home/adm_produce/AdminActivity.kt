@@ -3,6 +3,7 @@ package com.project.invy.home.adm_produce
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,16 +25,19 @@ class AdminActivity : AppCompatActivity() {
 
         when (intent.getStringExtra(EXTRA_OPTION)) {
             "product_in" -> {
+                binding?.rvIn?.visibility = View.VISIBLE
                 initRecyclerViewIn()
                 initViewModelIn()
                 binding?.title?.text = "Bukti penerimaan barang masuk"
             }
             "product_out" -> {
+                binding?.rvOut?.visibility = View.VISIBLE
                 initRecyclerViewOut()
                 initViewModelOut()
                 binding?.title?.text = "Bukti penerimaan barang keluar"
             }
             else -> {
+                binding?.rvProduct?.visibility = View.VISIBLE
                 initRecyclerViewProduce()
                 initViewModelProduce()
                 binding?.title?.text = "Bukti BPM (Bon Penerimaan Material)"
@@ -68,9 +72,9 @@ class AdminActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerViewOut() {
-        binding?.rvProduct?.layoutManager = LinearLayoutManager(this)
+        binding?.rvOut?.layoutManager = LinearLayoutManager(this)
         adminAdapter = AdminAdapter()
-        binding?.rvProduct?.adapter = adminAdapter
+        binding?.rvOut?.adapter = adminAdapter
     }
 
     private fun initViewModelOut() {
@@ -90,9 +94,9 @@ class AdminActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerViewIn() {
-        binding?.rvProduct?.layoutManager = LinearLayoutManager(this)
+        binding?.rvIn?.layoutManager = LinearLayoutManager(this)
         adminAdapter = AdminAdapter()
-        binding?.rvProduct?.adapter = adminAdapter
+        binding?.rvIn?.adapter = adminAdapter
     }
 
     private fun initViewModelIn() {

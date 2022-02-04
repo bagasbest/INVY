@@ -25,7 +25,7 @@ class WarehouseInboxProofActivity : AppCompatActivity() {
         model = intent.getParcelableExtra(EXTRA_MODEL)
 
         binding?.date?.text = "Tanggal : ${model?.date}"
-        binding?.code?.text = "No : ${model?.code}"
+        binding?.code?.text = "No BPM : ${model?.code}"
 
         binding?.name?.text = model?.name
         binding?.invCode?.text = model?.invCode
@@ -37,8 +37,8 @@ class WarehouseInboxProofActivity : AppCompatActivity() {
         try {
             val qrLeft = model?.productId + "stoker"
             val qrRight = model?.productId + "Kabag prod BSC"
-            val bitMatrixQrLeft = writer.encode(qrLeft, BarcodeFormat.QR_CODE, 60, 60)
-            val bitMatrixQrRight = writer.encode(qrRight, BarcodeFormat.QR_CODE, 60, 60)
+            val bitMatrixQrLeft = writer.encode(qrLeft, BarcodeFormat.QR_CODE, 80, 80)
+            val bitMatrixQrRight = writer.encode(qrRight, BarcodeFormat.QR_CODE, 80, 80)
 
             val widthLeft = bitMatrixQrLeft.width
             val heightLeft = bitMatrixQrLeft.height
