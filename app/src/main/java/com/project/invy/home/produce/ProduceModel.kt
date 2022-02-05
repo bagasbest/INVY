@@ -13,4 +13,5 @@ data class ProduceModel(
     var total: Long? = 0L,
     var keterangan: String? = null,
     var date: String? = null,
+    var status: String? = null,
 ) : Parcelable

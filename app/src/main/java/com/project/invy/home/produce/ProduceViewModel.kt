@@ -30,6 +30,7 @@ class ProduceViewModel : ViewModel() {
                         model.keterangan = document.data["keterangan"].toString()
                         model.productId = document.data["productId"].toString()
                         model.satuan = document.data["satuan"].toString()
+                        model.status = document.data["status"].toString()
                         model.total = document.data["total"] as Long
 
                         listItems.add(model)

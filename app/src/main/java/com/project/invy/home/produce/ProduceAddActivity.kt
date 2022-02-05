@@ -93,6 +93,7 @@ class ProduceAddActivity : AppCompatActivity() {
                     "total" to total.toLong(),
                     "keterangan" to keterangan,
                     "date" to date,
+                    "status" to "Sedang di proses"
                 )
 
                 FirebaseFirestore

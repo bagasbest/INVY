@@ -51,7 +51,7 @@ class AdminActivity : AppCompatActivity() {
 
     private fun initRecyclerViewProduce() {
         binding?.rvProduct?.layoutManager = LinearLayoutManager(this)
-        produceAdapter = ProduceAdapter("warehouse")
+        produceAdapter = ProduceAdapter("produce")
         binding?.rvProduct?.adapter = produceAdapter
     }
 
